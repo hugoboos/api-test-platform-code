@@ -34,10 +34,13 @@ class DesignRuleTestOption(OrderedModel):
 class DesignRuleTestSuite(models.Model):
     uuid = models.UUIDField(default=uuid4)
     api_endpoint = models.URLField(unique=True)
+    # Optional URL to the OpenAPI specification file.
+    # Only necessary if it is not located at the default location relative to the api_endpoint.
+    specification_url = models.URLField(blank=True)
 
     def start_session(self, test_version):
         session = self.sessions.create(test_version=test_version)
-        session.start_tests(self.api_endpoint)
+        session.start_tests(self.api_endpoint, self.specification_url)
         return session
 
     def get_latest_session(self):
@@ -69,8 +72,8 @@ class DesignRuleSession(models.Model):
     class Meta:
         ordering = ("-started_at", )
 
-    def start_tests(self, api_endpoint):
-        run_tests(self, api_endpoint)
+    def start_tests(self, api_endpoint, specification_url=""):
+        run_tests(self, api_endpoint, specification_url)
 
     def successful(self):
         if self.results.exists():
