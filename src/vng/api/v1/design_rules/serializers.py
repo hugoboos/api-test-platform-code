@@ -69,6 +69,7 @@ class NoneSerializer(serializers.Serializer):
 
 class StartSessionSerializer(serializers.Serializer):
     test_version = TestVersionField()
+    specification_url = serializers.URLField(validators=[URLValidator(message=_('Enter a valid URL.'))], required=False)
 
 
 class DesignRuleTestOptionSerializer(serializers.ModelSerializer):
@@ -131,16 +132,12 @@ class DesignRuleTestSuiteSerializer(DynamicFieldsModelSerializer, serializers.Mo
         view_name='api_v1_design_rules:session-detail'
     )
     api_endpoint = serializers.URLField(validators=[URLValidator(message=_('Enter a valid URL.'))])
-    specification_url = serializers.URLField(validators=[URLValidator(message=_('Enter a valid URL.'))], required=False)
 
     class Meta:
         model = DesignRuleTestSuite
-        fields = ("uuid", "api_endpoint", "specification_url", "sessions")
+        fields = ("uuid", "api_endpoint", "sessions")
         read_only_fields = ("uuid", )
 
     def create(self, validated_data):
-        instance, _ = DesignRuleTestSuite.objects.get_or_create(api_endpoint=validated_data.get("api_endpoint"), defaults={
-            "specification_url": validated_data.get("specification_url"),
-        })
-
+        instance, _ = DesignRuleTestSuite.objects.get_or_create(api_endpoint=validated_data.get("api_endpoint"))
         return instance

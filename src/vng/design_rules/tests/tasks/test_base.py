@@ -47,7 +47,7 @@ class BaseAPITests(TestCase):
 
     def test_specification_url(self):
         spec_url = "http://localhost:8000/docs/openapi.json"
-        session = DesignRuleSessionFactory(test_suite__api_endpoint="http://localhost:8000/api/v1", test_suite__specification_url=spec_url, test_version=self.test_version)
+        session = DesignRuleSessionFactory(test_suite__api_endpoint="http://localhost:8000/api/v1", test_version=self.test_version)
 
         with requests_mock.Mocker() as mock:
             dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -66,11 +66,11 @@ class BaseAPITests(TestCase):
         self.assertEqual(DesignRuleResult.objects.count(), 7)
         session.refresh_from_db()
         self.assertFalse(session.successful())
-        self.assertEqual(session.percentage_score, Decimal("87.71"))
+        self.assertEqual(session.percentage_score, Decimal("85.71"))
 
     def test_unnecessary_specification_url(self):
         spec_url = "http://localhost:8000/docs/openapi.json"
-        session = DesignRuleSessionFactory(test_suite__api_endpoint="http://localhost:8000/api/v1", test_suite__specification_url=spec_url, test_version=self.test_version)
+        session = DesignRuleSessionFactory(test_suite__api_endpoint="http://localhost:8000/api/v1", test_version=self.test_version)
 
         with requests_mock.Mocker() as mock:
             dir_path = os.path.dirname(os.path.realpath(__file__))

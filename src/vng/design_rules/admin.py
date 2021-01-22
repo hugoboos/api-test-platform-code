@@ -10,7 +10,7 @@ from .models import (
 
 @admin.register(DesignRuleTestSuite)
 class DesignRuleTestSuiteAdmin(admin.ModelAdmin):
-    list_display = ('uuid', 'api_endpoint', 'specification_url')
+    list_display = ('uuid', 'api_endpoint')
 
 
 @admin.register(DesignRuleSession)

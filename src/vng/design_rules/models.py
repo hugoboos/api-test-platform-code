@@ -34,13 +34,10 @@ class DesignRuleTestOption(OrderedModel):
 class DesignRuleTestSuite(models.Model):
     uuid = models.UUIDField(default=uuid4)
     api_endpoint = models.URLField(unique=True)
-    # Optional URL to the OpenAPI specification file.
-    # Only necessary if it is not located at the default location relative to the api_endpoint.
-    specification_url = models.URLField(blank=True)
 
-    def start_session(self, test_version):
-        session = self.sessions.create(test_version=test_version)
-        session.start_tests(self.api_endpoint, self.specification_url)
+    def start_session(self, test_version, specification_url=""):
+        session = self.sessions.create(test_version=test_version, specification_url=specification_url)
+        session.start_tests(self.api_endpoint, specification_url)
         return session
 
     def get_latest_session(self):
@@ -68,6 +65,10 @@ class DesignRuleSession(models.Model):
     json_result = models.TextField(blank=True, null=True, default=None, help_text=_("This is the downloaded api spec"))
     percentage_score = models.DecimalField(default=0, decimal_places=2, max_digits=5)
     test_version = models.ForeignKey(DesignRuleTestVersion, null=True, on_delete=models.CASCADE)
+    # Optional URL to the OpenAPI specification file.
+    # Only necessary if it is not located at the default location relative to the api_endpoint.
+    # This is saved here since this is a workaround to be able to test certain API's
+    specification_url = models.URLField(blank=True)
 
     class Meta:
         ordering = ("-started_at", )
