@@ -69,6 +69,7 @@ class NoneSerializer(serializers.Serializer):
 
 class StartSessionSerializer(serializers.Serializer):
     test_version = TestVersionField()
+    specification_url = serializers.URLField(validators=[URLValidator(message=_('Enter a valid URL.'))], required=False)
 
 
 class DesignRuleTestOptionSerializer(serializers.ModelSerializer):

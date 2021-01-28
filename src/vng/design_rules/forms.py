@@ -11,3 +11,4 @@ class DesignRuleTestSuiteForm(forms.ModelForm):
 
 class DesignRuleSessionStart(forms.Form):
     test_version = forms.ModelChoiceField(queryset=DesignRuleTestVersion.objects.filter(is_active=True))
+    specification_url = forms.URLField(required=None)
