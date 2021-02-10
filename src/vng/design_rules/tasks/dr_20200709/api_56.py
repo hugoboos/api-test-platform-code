@@ -42,7 +42,7 @@ def run_20200709_api_56(session):
         result.success = True
     except ValueError:
         result.success = False
-        result.errors = [_("The given version does not resamble a SemVer version.")]
+        result.errors = [_("The given version does not resemble a SemVer version.")]
 
     result.save()
     return result
