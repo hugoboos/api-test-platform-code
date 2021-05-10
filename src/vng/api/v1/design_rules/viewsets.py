@@ -30,7 +30,7 @@ class DesignRuleTestVersionViewSet(mixins.ListModelMixin, GenericViewSet):
     serializer_class = DesignRuleTestVersionSerializer
 
 
-class DesignRuleTestSuiteViewSet(mixins.CreateModelMixin, mixins.UpdateModelMixin, mixins.RetrieveModelMixin, mixins.ListModelMixin, GenericViewSet):
+class DesignRuleTestSuiteViewSet(mixins.CreateModelMixin, mixins.RetrieveModelMixin, mixins.ListModelMixin, GenericViewSet):
     """
     list:
     Get all the Design rule Test suites that are registered.
@@ -52,7 +52,7 @@ class DesignRuleTestSuiteViewSet(mixins.CreateModelMixin, mixins.UpdateModelMixi
         serializer = StartSessionSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         obj = self.get_object()
-        obj.start_session(serializer.data.get("test_version"))
+        obj.start_session(serializer.data.get("test_version"), serializer.data.get("specification_url", ""))
 
         serializer = DesignRuleSessionSerializer(instance=obj.get_latest_session())
         return Response(serializer.data, status=201)
