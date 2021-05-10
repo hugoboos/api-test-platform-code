@@ -27,6 +27,7 @@ nginx_media_dir: "{{ project_root }}/media/"
 dbname: vngatvprod
 dbuser: vngatv
 # dbpassword: (see vault)
+dbport: 5432
 
 uwsgi_port: 8084
 shields_port: 9000

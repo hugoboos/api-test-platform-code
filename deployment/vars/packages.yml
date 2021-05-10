@@ -28,4 +28,5 @@ system_packages:
   - libjpeg-dev
   - libffi-dev # for pyopenssl / Scrapy
   - libc-bin # ldconfig / npm
+  - curl # for gcloud key ring
 

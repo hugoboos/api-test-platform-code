@@ -11,7 +11,7 @@ attrs==20.3.0             # via jsonschema
 billiard==3.5.0.5         # via celery
 cachetools==3.0.0         # via google-auth
 cairocffi==0.9.0          # via cairosvg, weasyprint
-cairosvg==2.2.1           # via weasyprint
+cairosvg==2.5.1           # via weasyprint
 celery==4.2.1             # via -r requirements/base.in
 certifi==2018.10.15       # via -r requirements/base.in, elastic-apm, requests
 cffi==1.11.5              # via cairocffi, weasyprint
@@ -66,13 +66,13 @@ google-api-python-client==1.7.4  # via -r requirements/base.in
 google-auth-httplib2==0.0.3  # via google-api-python-client
 google-auth==1.6.1        # via google-api-python-client, google-auth-httplib2
 html5lib==1.0.1           # via weasyprint
-httplib2==0.18.0          # via google-api-python-client, google-auth-httplib2, oauth2client
+httplib2==0.19.0          # via google-api-python-client, google-auth-httplib2, oauth2client
 idna==2.7                 # via -r requirements/base.in, requests
 importlib-metadata==3.3.0  # via jsonschema
 inflection==0.3.1         # via drf-spectacular, drf-yasg
 itypes==1.1.0             # via coreapi
 jdcal==1.4                # via openpyxl
-jinja2==2.10.1            # via coreschema
+jinja2==2.11.3            # via coreschema
 jsonschema==3.2.0         # via drf-spectacular
 kombu==4.2.2.post1        # via celery
 markupsafe==1.1.0         # via jinja2
@@ -96,7 +96,7 @@ raven==6.9.0              # via -r requirements/base.in
 redis==2.10.6             # via -r requirements/base.in, django-redis
 requests-mock==1.7.0      # via -r requirements/base.in
 requests==2.20.1          # via -r requirements/base.in, coreapi, django-rosetta, gemma-zds-client, requests-mock
-rsa==4.0                  # via google-auth, oauth2client
+rsa==4.7                  # via google-auth, oauth2client
 ruamel.yaml==0.15.88      # via drf-yasg
 semver==2.13.0            # via -r requirements/base.in
 six==1.11.0               # via django-background-tasks, django-bootstrap-breadcrumbs, django-compat, django-dynamic-raw-id, django-rest-auth, django-rosetta, drf-yasg, google-api-python-client, google-auth, html5lib, jsonschema, oauth2client, requests-mock
