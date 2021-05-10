@@ -13,7 +13,7 @@
     - include: maykin-deployment/ansible/tasks/create_maykin_user.yml
     - include: maykin-deployment/ansible/tasks/staff_pub_keys.yml
     - include: maykin-deployment/ansible/tasks/setup.yml
-    - include: maykin-deployment/ansible/tasks/hostname.yml
+    - include: maykin-deployment/ansible/tasks/unattended-upgrades.yml
     - include: maykin-deployment/ansible/tasks/exim4.yml
     - include: maykin-deployment/ansible/tasks/newrelic.yml
     - include: maykin-deployment/ansible/tasks/firewall.yml
