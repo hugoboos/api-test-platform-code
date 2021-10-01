@@ -34,9 +34,9 @@
         "minimist": "^1.2.5",
         "newman": "^4.5.7",
         "newman-reporter-html": "^1.0.5",
-        "newman-reporter-htmlextra": "^1.8.2",
+        "newman-reporter-htmlextra": "^1.22.1",
         "normalize.css": "^4.0.0",
-        "npm": "^6.13.4",
+        "npm": "^6.14.15",
         "npm-audit-resolver": "^1.5.0",
         "openapi-to-postmanv2": "^0.2.1-memoryfix.2",
         "perfect-scrollbar": "^1.4.0",
@@ -44,7 +44,7 @@
         "postcss-selector-lint": "^1.0.0",
         "swagger2openapi": "^7.0.2",
         "underscore.string": "^3.3.5",
-        "ws": ">=1.1.5"
+        "ws": "^8.2.2"
     },
     "devDependencies": {
         "@babel/core": "^7.2.0",
