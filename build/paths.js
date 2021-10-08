@@ -25,13 +25,13 @@ module.exports = {
     staticRoot: staticRoot,
 
     // Path to the scss entry point
-    scssEntry: sourcesRoot + 'scss/screen.scss',
+    scssEntry: sourcesRoot + 'sass/screen.scss',
 
     // Path to the scss (sources) directory
     scssSrcDir: sourcesRoot + 'scss/',
 
     // Path to the scss (sources) entry point
-    scssSrc: sourcesRoot + 'scss/**/*.scss',
+    scssSrc: sourcesRoot + 'sass/**/*.scss',
 
     // Path to the (transpiled) css directory
     cssDir: staticRoot + 'css/',
