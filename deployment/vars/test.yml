@@ -29,7 +29,10 @@ nginx_basicauth_password: nogniet
 dbname: vng-test
 dbuser: vng-test
 dbpassword: myprojectpassDSJHSJ
+dbport: 5432
 
 uwsgi_port: 8106
 
 new_relic_license_key: df267b81c76433faafdbc414918535ea9b22b425
+
+node_version: 16
