@@ -28,11 +28,13 @@ module.exports = {
 
     // Add babel (see .babelrc for settings)
     module: {
-        rules: [{
-            exclude: /node_modules/,
-            loader: 'babel-loader',
-            test: /.js?$/
-        }]
+        rules: [
+            {
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                test: /.js?$/
+            }
+        ]
     },
 
     // Use --sourcemap to generate sourcemap.

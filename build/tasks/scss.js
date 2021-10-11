@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var postcss = require('gulp-postcss');
 var sourcemaps = require('gulp-sourcemaps');
-var sass = require('gulp-sass');
+var sass = require('gulp-dart-sass');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
 var selectorLint = require('postcss-selector-lint');
@@ -59,7 +59,7 @@ var plugins = isProduction ? [cssnano(), autoprefixer()] : [autoprefixer(), sele
  * Writes css to paths.cssDir
  */
 function scss() {
-    return gulp.src(paths.sassSrc)
+    return gulp.src(paths.scssSrc)
         .pipe(gulpif(sourcemap, sourcemaps.init()))
         .pipe(sass({
             outputStyle: isProduction ? 'compressed' : 'expanded',

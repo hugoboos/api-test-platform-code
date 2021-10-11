@@ -1,15 +1,14 @@
-var path = require('path');
-var fs = require('fs');
+const fs = require('fs');
 
 
 /** Parses package.json */
-var pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
+const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 
-/** Name of the sources directory */
-var sourcesRoot = 'src/' + pkg.name + '/';
+/** Src dir */
+const sourcesRoot = 'src/' + pkg.name + '/';
 
-/** Name of the static (source) directory */
-var staticRoot = sourcesRoot + 'static/';
+/** "Main" static dir */
+const staticRoot = sourcesRoot + 'static/';
 
 
 /**
@@ -19,23 +18,32 @@ module.exports = {
     // Parsed package.json
     package: pkg,
 
-    // Path to the sass (sources) directory
-    sassSrcDir: sourcesRoot + 'sass/',
+    // Src dir
+    sourcesRoot: sourcesRoot,
 
-    // Path to the sass (sources) entry point
-    sassSrc: sourcesRoot + 'sass/**/*.scss',
+    // "Main" static dir
+    staticRoot: staticRoot,
+
+    // Path to the scss entry point
+    scssEntry: sourcesRoot + 'sass/screen.scss',
+
+    // Path to the scss (sources) directory
+    scssSrcDir: sourcesRoot + 'scss/',
+
+    // Path to the scss (sources) entry point
+    scssSrc: sourcesRoot + 'sass/**/*.scss',
 
     // Path to the (transpiled) css directory
     cssDir: staticRoot + 'css/',
 
     // Path to the fonts directory
-    fontsDir: staticRoot + 'fonts/',
+    fontsDir: sourcesRoot + '`fonts/',
 
     // Path to the js entry point (source)
     jsEntry: sourcesRoot + 'js/index.js',
 
-    // Path to the js (sources) directory
-    jsSrcDir: sourcesRoot + 'js/',
+    // Path to the compatibility js entry point (source)
+    swEntry: sourcesRoot + 'static/js/sw.js',
 
     // Path to js (sources)
     jsSrc: sourcesRoot + 'js/**/*.js',
@@ -47,10 +55,10 @@ module.exports = {
     jsDir: staticRoot + 'js/',
 
     // Path to js spec (test) files
-    jsSpec: sourcesRoot + 'jstests/**/*.spec.js',
+    jsSpec: sourcesRoot + '**/jstests/**/*.spec.js',
 
     // Path to js spec (test) entry file
-    jsSpecEntry: sourcesRoot + 'jstests/index.js',
+    jsSpecEntry: sourcesRoot + '**/jstests/index.js',
 
     // Path to js code coverage directory
     coverageDir: 'reports/jstests/',
