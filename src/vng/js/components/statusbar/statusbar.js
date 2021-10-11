@@ -14,7 +14,7 @@ var statusLabel = wrap($(".statuslabel"));
 function update() {
     for (let i = 0; i < obj.length; i++) {
         $.ajax({
-            url: window.url + obj[i].attr(window.attr_name) + '/',
+            url: window.url + obj[i].attr(window.attr_name),
             success: (data, textStatus, jqXHR) => {
                 var session = data;
                 if (session[window.percentage]) {
