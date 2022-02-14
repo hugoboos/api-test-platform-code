@@ -18,11 +18,12 @@ def get_all_fields(mo):
 
 class EndpointInline(admin.TabularInline):
     model = model.Endpoint
-
+    raw_id_fields = ('server_run',)
 
 class ServerHeaderInline(admin.TabularInline):
     model = model.ServerHeader
 
+    raw_id_fields = ('server_run', )
 
 class TestScenarioUrlInline(admin.TabularInline):
     model = model.TestScenarioUrl
@@ -106,7 +107,7 @@ class EnvironmentAdmin(admin.ModelAdmin):
     list_filter = ['test_scenario',]
 
     inlines = [EndpointInline, ServerHeaderInline]
-
+    raw_id_fields = ('server_run', )
 
 @admin.register(model.ServerRun)
 class ServerRunAdmin(admin.ModelAdmin):
