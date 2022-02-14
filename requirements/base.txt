@@ -4,7 +4,7 @@
 #
 #    pip-compile requirements/base.in
 #
--e git+git://github.com/maykinmedia/django-admin-index@feature/menu-and-env-notice#egg=django_admin_index  # via -r requirements/base.in
+-e git+https://github.com/maykinmedia/django-admin-index@feature/menu-and-env-notice#egg=django_admin_index  # via -r requirements/base.in
 -e git+https://github.com/maykinmedia/django-subdomains.git@d1a88358569f522a81f1b9b3659aa429e55f22ea#egg=django_subdomains  # via -r requirements/base.in
 amqp==2.4.1               # via kombu
 attrs==20.3.0             # via jsonschema
