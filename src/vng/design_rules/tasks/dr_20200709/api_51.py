@@ -37,12 +37,11 @@ def run_20200709_api_51(session, response, correct_location=False, is_json=False
         warnings.append(_("The API did not give a valid JSON output. It most likely was YAML"))
 
     cors_headers = response.headers.get("Access-Control-Allow-Origin")
-    parsed_url = urlparse(response.url)
-    host = "{}://{}".format(parsed_url.scheme, parsed_url.netloc)
-    if not cors_headers:
-        errors.append(_("There are no CORS headers set. Please make sure that CORS headers are set."))
-    elif cors_headers in [host, "{}/".format(host)]:
-        errors.append(_("The CORS headers only allow the requested domain. Please make sure that it can be loaded from outside the domain"))
+    if cors_headers:
+        parsed_url = urlparse(response.url)
+        host = "{}://{}".format(parsed_url.scheme, parsed_url.netloc)
+        if cors_headers in [host, "{}/".format(host)]:
+            errors.append(_("The CORS headers only allow the requested domain. Please make sure that it can be loaded from outside the domain"))
 
     result.success = True
 
