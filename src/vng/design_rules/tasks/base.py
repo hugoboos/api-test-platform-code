@@ -53,8 +53,8 @@ def _get_response(session, json_endpoint, yaml_endpoint, is_json):
                 pass
             except ReaderError:
                 pass
-            except:
-                logger.exception()
+            except Exception as e:
+                logger.exception(e)
 
     return session, response, is_json
 
