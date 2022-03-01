@@ -19,8 +19,9 @@ class DidNotRunException(Exception):
 class NewmanManager:
     REPORT_FOLDER = settings.MEDIA_ROOT + '/newman'
     newman_path = os.path.join(settings.BASE_DIR, 'node_modules', 'newman', 'bin', 'newman.js')
-    RUN_REPORT = ('NODE_OPTIONS="--max-old-space-size=4096" '
+    RUN_REPORT = ('NODE_OPTIONS="--max-old-space-size=14000  " '
                        '{} run --reporters "htmlextra,json" {} '
+                       '--timeout-request 60000 '
                        '--reporter-htmlextra-darkTheme '
                        '--reporter-htmlextra-testPaging '
                        '--reporter-htmlextra-title '
@@ -46,6 +47,8 @@ class NewmanManager:
 
     def run_command(self, command, *args):
         command = command.format(*args, self.global_vars)
+        logger.info("Running newman:")
+        logger.info(command)
         return run_command_with_shell(command)
 
     def replace_parameters(self, _dict):

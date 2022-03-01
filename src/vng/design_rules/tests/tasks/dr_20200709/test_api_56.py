@@ -56,4 +56,4 @@ class Api56Tests(TestCase):
         result = run_20200709_api_56(session)
         self.assertEqual(DesignRuleResult.objects.count(), 1)
         self.assertFalse(result.success)
-        self.assertEqual(result.errors, [_("The given version does not resamble a SemVer version.")])
+        self.assertEqual(result.errors, [_("The given version does not resemble a SemVer version.")])
