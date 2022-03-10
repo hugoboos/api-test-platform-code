@@ -56,8 +56,7 @@ class Api51Tests(TestCase):
 
         result = run_20200709_api_51(session, response=response, is_json=True, correct_location=True)
         self.assertEqual(DesignRuleResult.objects.count(), 1)
-        self.assertFalse(result.success)
-        self.assertEqual(result.errors, [_("There are no CORS headers set. Please make sure that CORS headers are set.")])
+        self.assertTrue(result.success)
 
     def test_base_as_first_path(self):
         dir_path = os.path.dirname(os.path.realpath(__file__))
