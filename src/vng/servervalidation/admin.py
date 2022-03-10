@@ -107,7 +107,7 @@ class EnvironmentAdmin(admin.ModelAdmin):
     list_filter = ['test_scenario',]
 
     inlines = [EndpointInline, ServerHeaderInline]
-    raw_id_fields = ('server_run', )
+    #raw_id_fields = ('server_run', )
 
 @admin.register(model.ServerRun)
 class ServerRunAdmin(admin.ModelAdmin):
