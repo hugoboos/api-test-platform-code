@@ -1,5 +1,6 @@
 ---
 
+force_npm_install: true
 user_name: maykin
 group_name: staff
 project_name: vng
